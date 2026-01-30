@@ -1,0 +1,131 @@
+/* ============================================
+   WHATSAPP WIDGET - MOBILE-FIRST
+   Positioned on bottom-left (opposite of BackToTop/ThemeToggle)
+   ============================================ */
+
+.whatsapp-widget {
+  position: fixed;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  z-index: var(--z-fixed);
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all var(--transition-base);
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.whatsapp-button:hover,
+.whatsapp-button:focus {
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  transform: translateY(-4px);
+}
+
+.whatsapp-button:active {
+  transform: translateY(-2px);
+}
+
+/* Expanded state - show text on hover */
+.whatsapp-button--expanded {
+  width: auto;
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.whatsapp-button__icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  transition: transform var(--transition-base);
+}
+
+.whatsapp-button:hover .whatsapp-button__icon {
+  transform: scale(1.1);
+}
+
+.whatsapp-button__text {
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-semibold);
+  opacity: 0;
+  max-width: 0;
+  transition: all var(--transition-base);
+}
+
+.whatsapp-button--expanded .whatsapp-button__text {
+  opacity: 1;
+  max-width: 150px;
+  margin-left: var(--space-xs);
+}
+
+/* Pulse animation for attention */
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
+  }
+}
+
+.whatsapp-button {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+.whatsapp-button:hover {
+  animation: none;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (min-width: 768px) {
+  .whatsapp-widget {
+    bottom: var(--space-2xl);
+    left: var(--space-xl);
+  }
+  
+  .whatsapp-button {
+    width: 56px;
+    height: 56px;
+    padding: var(--space-md);
+  }
+  
+  .whatsapp-button--expanded {
+    padding: var(--space-md) var(--space-xl);
+  }
+  
+  .whatsapp-button__icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .whatsapp-button__text {
+    font-size: var(--font-base);
+  }
+}
+
+@media (min-width: 1024px) {
+  .whatsapp-widget {
+    left: var(--space-2xl);
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-button {
+    animation: none;
+  }
+}

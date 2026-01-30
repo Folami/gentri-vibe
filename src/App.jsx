@@ -14,6 +14,7 @@ import Dashboard from './pages/Dashboard'
 import CreatorTools from './pages/CreatorTools'
 import BackToTop from './components/BackToTop'
 import ThemeToggle from './components/ThemeToggle'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
+        <WhatsAppButton />
         <BackToTop />
         <ThemeToggle />
       </div>
