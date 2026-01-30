@@ -36,7 +36,7 @@ const CreatorTools = () => {
           />
           <FeatureCard 
             icon="🔒"
-            title="Paywalled Galleries"
+            title="Paywalled Media Vaults"
             desc="Tease content for free, lock premium access. Music previews, exclusive photos, behind-the-scenes."
           />
           <FeatureCard 
