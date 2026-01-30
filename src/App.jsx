@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 
-import AgeGate from './components/AgeGate'
+// AgeGate temporarily disabled for rebrand
+// import AgeGate from './components/AgeGate'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Features from './pages/Features'
@@ -15,7 +16,7 @@ import CreatorTools from './pages/CreatorTools'
 function App() {
   return (
     <Router>
-      <AgeGate />
+      {/* <AgeGate /> */}
       <div className="app-container">
         <Routes>
           <Route element={<Layout />}>
