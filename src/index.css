@@ -163,6 +163,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -174,6 +176,12 @@ body {
   background-color: var(--bg-primary);
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+.app-container {
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
 }
 
 /* ============================================

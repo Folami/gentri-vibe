@@ -129,3 +129,13 @@
     animation: none;
   }
 }
+/* Position matching ThemeToggle - shift up when BackToTop is visible */
+.back-to-top ~ .whatsapp-widget {
+  bottom: 140px;
+}
+
+@media (min-width: 768px) {
+  .back-to-top ~ .whatsapp-widget {
+    bottom: calc(var(--space-2xl) + 72px);
+  }
+}

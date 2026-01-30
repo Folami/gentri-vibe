@@ -33,8 +33,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
-        <WhatsAppButton />
         <BackToTop />
+        <WhatsAppButton />
         <ThemeToggle />
       </div>
     </Router>
