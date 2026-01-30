@@ -1,0 +1,108 @@
+:root {
+  /* Colors - Base */
+  --bg-dark: #0a0a0a;
+  --bg-card: #141414;
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+  
+  /* Colors - Neon Accents */
+  --neon-purple: #b026ff;
+  --neon-green: #39ff14;
+  --neon-pink: #ff00ff;
+  
+  /* Colors - Package Tiers */
+  --blue-package: #2196f3;
+  --pink-package: #e91e63;
+  --yellow-package: #ffc107;
+  --orange-addon: #ff5722;
+  
+  /* Colors - Neutral Tones */
+  --neutral-blue: #4a90e2;
+  --neutral-green: #2ecc71;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Fonts */
+  --font-main: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth scroll offset for anchor links */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Hover effects for buttons */
+button, a[style*="background"] {
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+button:hover, a[style*="background"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--neon-purple);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Utility to hide scrollbar but keep functionality if needed */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
