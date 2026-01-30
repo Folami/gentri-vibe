@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import logo from '../assets/gentri-logo.jpg'
+import logo from '../assets/gentri-vibe-logo-1.jpg'
 import './Navbar.css'
 
 const Navbar = () => {
