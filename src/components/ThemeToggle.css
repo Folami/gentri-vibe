@@ -1,0 +1,75 @@
+/* ============================================
+   THEME TOGGLE - MOBILE-FIRST
+   ============================================ */
+
+.theme-toggle {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-fixed);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  background-color: var(--bg-card-hover);
+  border-color: var(--neon-purple);
+  transform: rotate(15deg) scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
+.theme-toggle:active {
+  transform: rotate(15deg) scale(0.95);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-base);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (min-width: 768px) {
+  .theme-toggle {
+    width: 56px;
+    height: 56px;
+    bottom: var(--space-2xl);
+    right: var(--space-xl);
+  }
+  
+  .theme-toggle svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme-toggle {
+    right: var(--space-2xl);
+  }
+}
+
+/* Position above BackToTop button when both are visible */
+.back-to-top ~ .theme-toggle {
+  bottom: 140px;
+}
+
+@media (min-width: 768px) {
+  .back-to-top ~ .theme-toggle {
+    bottom: calc(var(--space-2xl) + 72px);
+  }
+}

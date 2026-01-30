@@ -12,6 +12,8 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import CreatorTools from './pages/CreatorTools'
+import BackToTop from './components/BackToTop'
+import ThemeToggle from './components/ThemeToggle'
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
+        <BackToTop />
+        <ThemeToggle />
       </div>
     </Router>
   )

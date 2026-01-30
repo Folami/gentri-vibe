@@ -118,6 +118,36 @@
 }
 
 /* ============================================
+   LIGHT MODE THEME
+   ============================================ */
+[data-theme="light"] {
+  /* Light mode color overrides */
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f3f5;
+  
+  /* Text colors for light mode */
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a5e;
+  --text-muted: #6c757d;
+  
+  /* Keep neon accents but adjust for light background */
+  --neon-purple: #7c3aed;
+  --neon-pink: #ec4899;
+  --neon-blue: #0ea5e9;
+  --neon-green: #10b981;
+  
+  /* Adjust shadows for light mode */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.3);
+  --shadow-glow-green: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* ============================================
    RESET & BASE STYLES
    ============================================ */
 *,

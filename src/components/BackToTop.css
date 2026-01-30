@@ -1,0 +1,62 @@
+/* ============================================
+   BACK TO TOP BUTTON - MOBILE-FIRST
+   ============================================ */
+
+.back-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: var(--space-md);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-pink) 100%);
+  color: var(--text-primary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow);
+  z-index: var(--z-fixed);
+  transition: all var(--transition-base);
+  animation: fadeIn 0.3s ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(160, 32, 240, 0.8);
+}
+
+.back-to-top:active {
+  transform: translateY(-2px);
+}
+
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (min-width: 768px) {
+  .back-to-top {
+    width: 56px;
+    height: 56px;
+    bottom: var(--space-2xl);
+    right: var(--space-xl);
+  }
+  
+  .back-to-top svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .back-to-top {
+    right: var(--space-2xl);
+  }
+}
