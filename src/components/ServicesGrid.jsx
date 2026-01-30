@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import './ServicesGrid.css'
 import '../index.css'
 
 const ServicesGrid = () => {
@@ -54,17 +55,17 @@ const ServicesGrid = () => {
   ]
 
   return (
-    <section id="services" style={styles.section}>
-      <div style={styles.container}>
-        <div style={styles.header}>
-          <span style={styles.sectionNumber}>01</span>
-          <h2 style={styles.title}>What We Do</h2>
-          <p style={styles.subtitle}>
+    <section id="services" className="services">
+      <div className="container">
+        <div className="services__header">
+          <span className="section-number section-number--purple">01</span>
+          <h2 className="section-title">What We Do</h2>
+          <p className="section-subtitle">
             End-to-end digital services that turn bold ideas into thriving businesses 💡
           </p>
         </div>
 
-        <div style={styles.grid}>
+        <div className="services__grid">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
@@ -75,92 +76,16 @@ const ServicesGrid = () => {
 }
 
 const ServiceCard = ({ icon, title, description, link }) => (
-  <div style={styles.card}>
-    <div style={styles.iconWrapper}>
-      <span style={styles.icon}>{icon}</span>
+  <article className="service-card">
+    <div className="service-card__icon-wrapper">
+      <span className="service-card__icon" role="img" aria-label={title}>{icon}</span>
     </div>
-    <h3 style={styles.cardTitle}>{title}</h3>
-    <p style={styles.cardDesc}>{description}</p>
-    <Link to={link} style={styles.detailsLink}>
+    <h3 className="service-card__title">{title}</h3>
+    <p className="service-card__description">{description}</p>
+    <Link to={link} className="service-card__link">
       See Details →
     </Link>
-  </div>
+  </article>
 )
-
-const styles = {
-  section: {
-    padding: '6rem 1rem',
-    backgroundColor: 'var(--bg-dark)',
-  },
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-  },
-  header: {
-    textAlign: 'center',
-    marginBottom: '4rem',
-  },
-  sectionNumber: {
-    display: 'inline-block',
-    fontSize: '1rem',
-    fontWeight: '700',
-    color: 'var(--neon-purple)',
-    backgroundColor: 'rgba(176, 38, 255, 0.1)',
-    padding: '0.5rem 1.5rem',
-    borderRadius: '30px',
-    marginBottom: '1rem',
-    border: '1px solid rgba(176, 38, 255, 0.3)',
-  },
-  title: {
-    fontSize: '3rem',
-    marginBottom: '1rem',
-    fontWeight: '800',
-  },
-  subtitle: {
-    fontSize: '1.2rem',
-    color: 'var(--text-muted)',
-    maxWidth: '700px',
-    margin: '0 auto',
-  },
-  grid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: '2rem',
-  },
-  card: {
-    backgroundColor: 'var(--bg-card)',
-    padding: '2.5rem',
-    borderRadius: '20px',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
-    transition: 'all var(--transition-smooth)',
-    cursor: 'pointer',
-  },
-  iconWrapper: {
-    marginBottom: '1.5rem',
-  },
-  icon: {
-    fontSize: '3rem',
-    display: 'block',
-  },
-  cardTitle: {
-    fontSize: '1.5rem',
-    marginBottom: '1rem',
-    fontWeight: '700',
-  },
-  cardDesc: {
-    color: 'var(--text-muted)',
-    lineHeight: '1.7',
-    marginBottom: '1.5rem',
-  },
-  detailsLink: {
-    color: 'var(--neon-green)',
-    fontWeight: '600',
-    textDecoration: 'none',
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-    transition: 'gap var(--transition-fast)',
-  }
-}
 
 export default ServicesGrid
