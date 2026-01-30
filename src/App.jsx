@@ -15,7 +15,7 @@ import CreatorTools from './pages/CreatorTools'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/gentri-vibe">
       {/* <AgeGate /> */}
       <div className="app-container">
         <Routes>
