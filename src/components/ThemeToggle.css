@@ -4,7 +4,7 @@
 
 .theme-toggle {
   position: fixed;
-  bottom: var(--space-md);
+  bottom: 20px; /* Standardize with WhatsAppWidget */
   right: var(--space-md);
   width: 48px;
   height: 48px;
@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   z-index: var(--z-fixed);
-  transition: all var(--transition-base);
+  transition: all var(--transition-base), bottom 0.3s ease-in-out;
   box-shadow: var(--shadow-md);
 }
 
@@ -65,7 +65,7 @@
 
 /* Position above BackToTop button when both are visible */
 .back-to-top ~ .theme-toggle {
-  bottom: 140px;
+  bottom: calc(80px + 60px); /* 80px (BackToTop bottom) + 56px (height) + 4px gap */
 }
 
 @media (min-width: 768px) {

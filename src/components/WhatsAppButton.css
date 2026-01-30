@@ -5,9 +5,10 @@
 
 .whatsapp-widget {
   position: fixed;
-  bottom: var(--space-md);
+  bottom: 20px; /* Standardize with ThemeToggle */
   left: var(--space-md);
   z-index: var(--z-fixed);
+  transition: bottom 0.3s ease-in-out;
 }
 
 .whatsapp-button {
@@ -131,7 +132,7 @@
 }
 /* Position matching ThemeToggle - shift up when BackToTop is visible */
 .back-to-top ~ .whatsapp-widget {
-  bottom: 140px;
+  bottom: calc(80px + 60px); /* Matches ThemeToggle shift exactly */
 }
 
 @media (min-width: 768px) {
