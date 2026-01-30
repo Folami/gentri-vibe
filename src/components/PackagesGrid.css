@@ -1,0 +1,164 @@
+/* ============================================
+   PACKAGES GRID - RESPONSIVE STYLES
+   ============================================ */
+
+.packages {
+  background-color: rgba(57, 255, 20, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.packages__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.package-card {
+  background-color: var(--bg-card);
+  padding: var(--space-xl);
+  border-radius: var(--radius-2xl);
+  border: 2px solid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-slow);
+}
+
+.package-card:hover {
+  transform: translateY(-4px);
+}
+
+.package-card--blue {
+  border-color: var(--blue-package);
+}
+
+.package-card--pink {
+  border-color: var(--pink-package);
+}
+
+.package-card--yellow {
+  border-color: var(--yellow-package);
+}
+
+.package-card--orange {
+  border-color: var(--orange-addon);
+}
+
+.package-card__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--neon-purple);
+  color: var(--text-primary);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+.package-card__bar {
+  height: 4px;
+  width: 60px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.package-card--blue .package-card__bar { background-color: var(--blue-package); }
+.package-card--pink .package-card__bar { background-color: var(--pink-package); }
+.package-card--yellow .package-card__bar { background-color: var(--yellow-package); }
+.package-card--orange .package-card__bar { background-color: var(--orange-addon); }
+
+.package-card__name {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-weight-extrabold);
+  margin-bottom: var(--space-md);
+}
+
+.package-card--blue .package-card__name { color: var(--blue-package); }
+.package-card--pink .package-card__name { color: var(--pink-package); }
+.package-card--yellow .package-card__name { color: var(--yellow-package); }
+.package-card--orange .package-card__name { color: var(--orange-addon); }
+
+.package-card__price {
+  font-size: var(--font-3xl);
+  font-weight: var(--font-weight-extrabold);
+  margin-bottom: var(--space-md);
+}
+
+.package-card__description {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+  line-height: var(--line-height-relaxed);
+}
+
+.package-card__features {
+  list-style: none;
+  margin-bottom: var(--space-xl);
+  flex: 1;
+}
+
+.package-card__features li {
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-sm);
+}
+
+.package-card__check {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-lg);
+}
+
+.package-card--blue .package-card__check { color: var(--blue-package); }
+.package-card--pink .package-card__check { color: var(--pink-package); }
+.package-card--yellow .package-card__check { color: var(--yellow-package); }
+.package-card--orange .package-card__check { color: var(--orange-addon); }
+
+.package-card__cta {
+  width: 100%;
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-base);
+  transition: transform var(--transition-fast);
+}
+
+.package-card__cta:hover {
+  transform: scale(1.02);
+}
+
+.package-card--blue .package-card__cta { background-color: var(--blue-package); }
+.package-card--pink .package-card__cta { background-color: var(--pink-package); }
+.package-card--yellow .package-card__cta { background-color: var(--yellow-package); }
+.package-card--orange .package-card__cta { background-color: var(--orange-addon); }
+
+.packages__footer {
+  text-align: center;
+  margin-top: var(--space-2xl);
+  font-size: var(--font-lg);
+}
+
+.packages__contact-link {
+  color: var(--neon-green);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (min-width: 640px) {
+  .packages__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .packages__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
