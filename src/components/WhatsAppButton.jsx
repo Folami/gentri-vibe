@@ -5,7 +5,7 @@ const WhatsAppButton = () => {
   const [isExpanded, setIsExpanded] = useState(false)
   
   // Replace with your actual WhatsApp business number (include country code without +)
-  const phoneNumber = '2347076710986' // Example: Nigeria number
+  const phoneNumber = '2347079710986' // Example: Nigeria number
   const defaultMessage = 'Hello GentriVibe! I\'m interested in your services.'
 
   const handleWhatsAppClick = () => {
