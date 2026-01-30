@@ -28,7 +28,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="navbar__logo" aria-label="GentriVibe Home">
           <img src={logo} alt="GentriVibe Logo" className="navbar__logo-img" />
-          <span className="navbar__logo-text">GentriVibe</span>
+          {/* <span className="navbar__logo-text">GentriVibe</span> */}
         </Link>
 
         {/* Hamburger Menu (Mobile) */}
