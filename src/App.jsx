@@ -27,7 +27,13 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   return (
-    <Router basename="/gentri-vibe">
+    <Router 
+      basename="/gentri-vibe" 
+      future={{ 
+        v7_startTransition: true, 
+        v7_relativeSplatPath: true 
+      }}
+    >
       <AuthProvider>
         {/* <AgeGate /> */}
         <div className="app-container">
