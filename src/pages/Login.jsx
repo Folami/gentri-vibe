@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { getAdditionalUserInfo } from 'firebase/auth'
 import '../index.css'
 
 const Login = () => {
@@ -28,8 +29,13 @@ const Login = () => {
     try {
       setError('')
       setLoading(true)
-      await googleSignIn()
-      navigate('/dashboard')
+      const result = await googleSignIn()
+      const details = getAdditionalUserInfo(result)
+      if (details?.isNewUser) {
+        navigate('/settings')
+      } else {
+        navigate('/dashboard')
+      }
     } catch (err) {
       setError('Failed to sign in with Google: ' + err.message)
     }

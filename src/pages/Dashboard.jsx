@@ -30,12 +30,6 @@ const Dashboard = () => {
           <h1 style={styles.title}>Creator Dashboard</h1>
           <p style={styles.userEmail}>Logged in as: {currentUser?.email}</p>
         </div>
-        <div style={styles.headerBtns}>
-          <Link to="/">
-            <button style={styles.secondaryBtn}>View Site</button>
-          </Link>
-          <button onClick={handleLogout} style={styles.logoutBtn}>Logout</button>
-        </div>
       </header>
 
       <div style={styles.grid}>

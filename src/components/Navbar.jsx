@@ -1,12 +1,25 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import logo from '../assets/gentri-vibe-logo-1.jpg'
 import './Navbar.css'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { currentUser, logout } = useAuth()
   const location = useLocation()
+  const navigate = useNavigate()
   const isHome = location.pathname === '/'
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      setIsOpen(false)
+      navigate('/login')
+    } catch (err) {
+      console.error('Failed to log out', err)
+    }
+  }
 
   const scrollToSection = (id) => {
     setIsOpen(false) // Close mobile menu after click
@@ -56,14 +69,34 @@ const Navbar = () => {
             Packages
           </a>
           <Link to="/creator-tools" className="navbar__link">Creator Tools</Link>
+          {currentUser && (
+            <Link to="/dashboard" className="navbar__link">Dashboard</Link>
+          )}
         </div>
 
         {/* Desktop Auth Buttons */}
         <div className="navbar__auth">
-          <Link to="/login" className="navbar__link-button">Login</Link>
-          <Link to="/signup">
-            <button className="navbar__cta">Get Started</button>
-          </Link>
+          {currentUser ? (
+            <>
+              <button 
+                onClick={handleLogout} 
+                className="navbar__link-button" 
+                style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+              >
+                Logout
+              </button>
+              <Link to="/dashboard">
+                <button className="navbar__cta">Dashboard</button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="navbar__link-button">Login</Link>
+              <Link to="/signup">
+                <button className="navbar__cta">Get Started</button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
 
@@ -87,13 +120,30 @@ const Navbar = () => {
             <Link to="/creator-tools" className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
               Creator Tools
             </Link>
+            {currentUser && (
+              <Link to="/dashboard" className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                Dashboard
+              </Link>
+            )}
             <div className="navbar__mobile-divider"></div>
-            <Link to="/login" className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
-              Login
-            </Link>
-            <Link to="/signup" onClick={() => setIsOpen(false)}>
-              <button className="navbar__mobile-cta">Get Started</button>
-            </Link>
+            
+            {currentUser ? (
+              <button 
+                className="navbar__mobile-cta" 
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link to="/login" className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                  Login
+                </Link>
+                <Link to="/signup" onClick={() => setIsOpen(false)}>
+                  <button className="navbar__mobile-cta">Get Started</button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

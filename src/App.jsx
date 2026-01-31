@@ -11,6 +11,7 @@ import Bots from './pages/Bots'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
+import Settings from './pages/Settings'
 import CreatorTools from './pages/CreatorTools'
 import BackToTop from './components/BackToTop'
 import ThemeToggle from './components/ThemeToggle'
@@ -44,6 +45,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Dashboard />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/settings" 
+                element={
+                  <ProtectedRoute>
+                    <Settings />
                   </ProtectedRoute>
                 } 
               />
