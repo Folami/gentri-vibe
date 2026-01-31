@@ -15,28 +15,45 @@ import CreatorTools from './pages/CreatorTools'
 import BackToTop from './components/BackToTop'
 import ThemeToggle from './components/ThemeToggle'
 import WhatsAppButton from './components/WhatsAppButton'
+import { AuthProvider, useAuth } from './context/AuthContext'
+import { Navigate } from 'react-router-dom'
+
+const ProtectedRoute = ({ children }) => {
+  const { currentUser } = useAuth()
+  if (!currentUser) return <Navigate to="/signup" />
+  return children
+}
 
 function App() {
   return (
     <Router basename="/gentri-vibe">
-      {/* <AgeGate /> */}
-      <div className="app-container">
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/features" element={<Features />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/bots" element={<Bots />} />
-            <Route path="/creator-tools" element={<CreatorTools />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
-        </Routes>
-        <BackToTop />
-        <WhatsAppButton />
-        <ThemeToggle />
-      </div>
+      <AuthProvider>
+        {/* <AgeGate /> */}
+        <div className="app-container">
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/features" element={<Features />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/bots" element={<Bots />} />
+              <Route path="/creator-tools" element={<CreatorTools />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route 
+                path="/dashboard" 
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                } 
+              />
+            </Route>
+          </Routes>
+          <BackToTop />
+          <WhatsAppButton />
+          <ThemeToggle />
+        </div>
+      </AuthProvider>
     </Router>
   )
 }

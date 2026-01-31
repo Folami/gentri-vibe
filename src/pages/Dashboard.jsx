@@ -1,9 +1,21 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import '../index.css'
 
 const Dashboard = () => {
   const [uploadedFiles, setUploadedFiles] = useState([])
+  const { currentUser, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      navigate('/login')
+    } catch {
+      alert('Failed to log out')
+    }
+  }
 
   const handleFileUpload = (e) => {
     const files = Array.from(e.target.files)
@@ -14,10 +26,16 @@ const Dashboard = () => {
   return (
     <div style={styles.page}>
       <header style={styles.header}>
-        <h1 style={styles.title}>Creator Dashboard</h1>
-        <Link to="/">
-          <button style={styles.logoutBtn}>Back to Site</button>
-        </Link>
+        <div>
+          <h1 style={styles.title}>Creator Dashboard</h1>
+          <p style={styles.userEmail}>Logged in as: {currentUser?.email}</p>
+        </div>
+        <div style={styles.headerBtns}>
+          <Link to="/">
+            <button style={styles.secondaryBtn}>View Site</button>
+          </Link>
+          <button onClick={handleLogout} style={styles.logoutBtn}>Logout</button>
+        </div>
       </header>
 
       <div style={styles.grid}>
@@ -131,13 +149,35 @@ const styles = {
   },
   title: {
     fontSize: '2.5rem',
+    marginBottom: '0.2rem',
+  },
+  userEmail: {
+    color: 'var(--text-muted)',
+    fontSize: '0.9rem',
+  },
+  headerBtns: {
+    display: 'flex',
+    gap: '1rem',
+    alignItems: 'center',
+  },
+  secondaryBtn: {
+    padding: '0.6rem 1.5rem',
+    borderRadius: '8px',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    color: '#fff',
+    fontWeight: '600',
+    cursor: 'pointer',
   },
   logoutBtn: {
     padding: '0.6rem 1.5rem',
     borderRadius: '8px',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    color: '#fff',
+    backgroundColor: 'rgba(234, 67, 53, 0.1)',
+    border: '1px solid rgba(234, 67, 53, 0.2)',
+    color: '#ff4d4d',
     fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
   },
   grid: {
     display: 'grid',

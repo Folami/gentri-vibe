@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import '../index.css'
 
 const Signup = () => {
@@ -9,12 +10,37 @@ const Signup = () => {
     password: '',
     tier: 'basic'
   })
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const { signup, googleSignIn } = useAuth()
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: Implement actual authentication
-    console.log('Signup attempt:', formData)
-    alert('Signup functionality coming soon! For now, this is a prototype.')
+    
+    try {
+      setError('')
+      setLoading(true)
+      await signup(formData.email, formData.password)
+      // Note: Firebase doesn't store 'name' in basic email signup, 
+      // you could use updateProfile here if needed
+      navigate('/dashboard')
+    } catch (err) {
+      setError('Failed to create an account: ' + err.message)
+    }
+    setLoading(false)
+  }
+
+  const handleGoogleSignIn = async () => {
+    try {
+      setError('')
+      setLoading(true)
+      await googleSignIn()
+      navigate('/dashboard')
+    } catch (err) {
+      setError('Failed to sign in with Google: ' + err.message)
+    }
+    setLoading(false)
   }
 
   const handleChange = (e) => {
@@ -153,6 +179,59 @@ const styles = {
     fontSize: '1rem',
     fontFamily: 'inherit',
   },
+  footer: {
+    textAlign: 'center',
+    marginTop: '2rem',
+    color: 'var(--text-muted)',
+  },
+  link: {
+    color: 'var(--neon-purple)',
+    fontWeight: 'bold',
+  },
+  error: {
+    backgroundColor: 'rgba(234, 67, 53, 0.1)',
+    color: '#ff4d4d',
+    padding: '1rem',
+    borderRadius: '10px',
+    marginBottom: '1.5rem',
+    fontSize: '0.9rem',
+    border: '1px solid rgba(234, 67, 53, 0.2)',
+    textAlign: 'center',
+  },
+  googleBtn: {
+    width: '100%',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    backgroundColor: '#fff',
+    color: '#000',
+    fontWeight: '600',
+    fontSize: '1rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '0.75rem',
+    marginTop: '0.5rem',
+    transition: 'all 0.2s ease',
+    opacity: props => props.disabled ? 0.7 : 1,
+    cursor: props => props.disabled ? 'not-allowed' : 'pointer',
+  },
+  googleIcon: {
+    width: '20px',
+    height: '20px',
+  },
+  divider: {
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'center',
+    margin: '1.5rem 0',
+    color: 'var(--text-muted)',
+    fontSize: '0.8rem',
+  },
+  dividerText: {
+    padding: '0 1rem',
+    flexShrink: 0,
+  },
   submitBtn: {
     padding: '1rem',
     borderRadius: '10px',
@@ -162,15 +241,9 @@ const styles = {
     fontSize: '1rem',
     marginTop: '1rem',
     boxShadow: '0 4px 15px rgba(57, 255, 20, 0.4)',
-  },
-  footer: {
-    textAlign: 'center',
-    marginTop: '2rem',
-    color: 'var(--text-muted)',
-  },
-  link: {
-    color: 'var(--neon-purple)',
-    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+    opacity: 1, // Will be overriden by inline or handled by browser for :disabled
   }
 }
 
