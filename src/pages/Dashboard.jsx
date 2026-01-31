@@ -30,6 +30,11 @@ const Dashboard = () => {
           <h1 style={styles.title}>Creator Dashboard</h1>
           <p style={styles.userEmail}>Logged in as: {currentUser?.email}</p>
         </div>
+        <div style={styles.headerBtns}>
+          <Link to="/settings" style={{ textDecoration: 'none' }}>
+            <button style={styles.secondaryBtn}>⚙️ Settings</button>
+          </Link>
+        </div>
       </header>
 
       <div style={styles.grid}>
@@ -102,6 +107,11 @@ const Dashboard = () => {
             <SettingItem label="Custom Domain" value="yourname.gentrivibe.com" />
             <SettingItem label="Current Plan" value="Basic (₦15k/mo)" />
             <SettingItem label="Paywall Price" value="₦2,500" />
+            <Link to="/settings" style={{ textDecoration: 'none' }}>
+              <button style={styles.editSettingsBtn}>
+                ✏️ Edit Profile Settings
+              </button>
+            </Link>
             <button style={styles.upgradeBtn}>
               ⭐ Upgrade to Pro
             </button>
@@ -279,13 +289,24 @@ const styles = {
   settingValue: {
     fontWeight: 'bold',
   },
+  editSettingsBtn: {
+    width: '100%',
+    padding: '1rem',
+    borderRadius: '10px',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    border: '1px solid rgba(255, 255, 255, 0.15)',
+    color: '#fff',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+  },
   upgradeBtn: {
     padding: '1rem',
     borderRadius: '10px',
     backgroundColor: 'var(--neon-purple)',
     color: '#fff',
     fontWeight: 'bold',
-    marginTop: '1rem',
+    marginTop: '0.5rem',
     boxShadow: '0 4px 15px rgba(176, 38, 255, 0.3)',
   }
 }

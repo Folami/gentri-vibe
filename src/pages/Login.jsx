@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { getAdditionalUserInfo } from 'firebase/auth'
 import '../index.css'
 
 const Login = () => {
@@ -30,17 +29,9 @@ const Login = () => {
       setError('')
       setLoading(true)
       console.log("Starting Google Sign-In popup...");
-      const result = await googleSignIn()
-      console.log("Popup result received:", result?.user?.email);
-      
-      const details = getAdditionalUserInfo(result)
-      if (details?.isNewUser) {
-        console.log("New user detected, navigating to settings");
-        navigate('/settings')
-      } else {
-        console.log("Existing user detected, navigating to dashboard");
-        navigate('/dashboard')
-      }
+      await googleSignIn()
+      console.log("Google Sign-In successful, navigating to settings");
+      navigate('/settings')
     } catch (err) {
       console.error("Google Sign-In error:", err);
       setError('Failed to sign in with Google: ' + err.message)
