@@ -173,7 +173,7 @@ body {
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
   color: var(--text-primary);
-  background-color: var(--bg-primary);
+  background-color: var(--bg-primary) !important;
   min-height: 100vh;
   overflow-x: hidden;
 }
