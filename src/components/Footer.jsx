@@ -1,59 +1,79 @@
 import { Link } from 'react-router-dom'
-import './Footer.css'
+import '../index.css'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="footer">
+    <footer style={{ 
+      backgroundColor: 'var(--bg-card)', 
+      paddingTop: '4rem', 
+      paddingBottom: '2rem', 
+      borderTop: '1px solid rgba(255,255,255,0.05)',
+      marginTop: 'auto'
+    }}>
       <div className="container">
-        <div className="footer__grid">
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+          gap: '3rem', 
+          marginBottom: '3rem' 
+        }}>
           {/* Column 1: Brand */}
-          <div className="footer__col">
-            <div className="footer__logo">GentriVibe</div>
-            <p className="footer__text">
-              Elevating African businesses with global-class technology. 
-              Innovation meets partnership.
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ 
+              fontFamily: 'var(--font-heading)', 
+              fontSize: '1.5rem', 
+              fontWeight: 'bold', 
+              background: 'linear-gradient(to right, var(--accent-blue), var(--accent-green))',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>
+              GentriVibe
+            </div>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+              Elevating African businesses with global-class technology. Innovation meets partnership.
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="footer__col">
-            <h4 className="footer__heading">Quick Links</h4>
-            <Link to="/" className="footer__link">Home</Link>
-            <a href="#services" className="footer__link">Services</a>
-            <a href="#about" className="footer__link">About Us</a>
-            <Link to="/creator-tools" className="footer__link">Creator Tools</Link>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            <h4 style={{ fontSize: '1rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Company</h4>
+            <Link to="/" style={{ color: 'var(--text-secondary)' }}>Home</Link>
+            <Link to="/about-us" style={{ color: 'var(--text-secondary)' }}>About Us</Link>
+            <Link to="/how-we-gentrivibe" style={{ color: 'var(--text-secondary)' }}>How We Work</Link>
           </div>
 
-          {/* Column 3: Legal & Support */}
-          <div className="footer__col">
-            <h4 className="footer__heading">Support</h4>
-            <Link to="/login" className="footer__link">Login</Link>
-            <Link to="/signup" className="footer__link">Sign Up</Link>
-            <Link to="/contact" className="footer__link">Contact</Link>
-            <Link to="/pricing" className="footer__link">Pricing</Link>
+          {/* Column 3: Services */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            <h4 style={{ fontSize: '1rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Services</h4>
+            <Link to="/services/sme-basic" style={{ color: 'var(--text-secondary)' }}>For Startups</Link>
+            <Link to="/services/e-commerce-vet" style={{ color: 'var(--text-secondary)' }}>For E-Commerce</Link>
+            <Link to="/services/content-creator-portals" style={{ color: 'var(--text-secondary)' }}>For Creators</Link>
           </div>
 
           {/* Column 4: Connect */}
-          <div className="footer__col">
-            <h4 className="footer__heading">Connect</h4>
-            <p className="footer__text">LAGOS, NIGERIA</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            <h4 style={{ fontSize: '1rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Connect</h4>
+            <p style={{ color: 'var(--text-secondary)' }}>LAGOS, NIGERIA</p>
             <a 
               href="https://wa.me/234XXXXXXXXXX" 
-              className="footer__whatsapp"
-              target="_blank"
+              target="_blank" 
               rel="noopener noreferrer"
+              style={{ color: 'var(--accent-green)', fontWeight: 'bold' }}
             >
               WhatsApp Us →
             </a>
-            <div className="footer__socials">
-              {/* Social icons can be added here if needed */}
-            </div>
           </div>
         </div>
 
-        <div className="footer__copyright">
+        <div style={{ 
+          textAlign: 'center', 
+          borderTop: '1px solid rgba(255,255,255,0.05)', 
+          paddingTop: '2rem', 
+          fontSize: '0.85rem', 
+          color: 'var(--text-muted)' 
+        }}>
           <p>&copy; {currentYear} GentriVibe Digital Agency. All rights reserved.</p>
         </div>
       </div>
