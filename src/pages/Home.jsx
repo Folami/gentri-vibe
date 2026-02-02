@@ -1,19 +1,23 @@
 import HeroBanner from '../components/HeroBanner'
-import ServicesGrid from '../components/ServicesGrid'
 import WhyUs from '../components/WhyUs'
+import ServicesGrid from '../components/ServicesGrid'
 import AboutSection from '../components/AboutSection'
-import PackagesGrid from '../components/PackagesGrid'
 import ExperienceSection from '../components/ExperienceSection'
+import PackagesGrid from '../components/PackagesGrid'
+import CreatorSpotlight from '../components/CreatorSpotlight'
+// import TeaserPreview from '../components/TeaserPreview'
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-page">
       <HeroBanner />
       <ServicesGrid />
       <WhyUs />
       <AboutSection />
       <PackagesGrid />
       <ExperienceSection />
+      <CreatorSpotlight />
+      {/* <TeaserPreview /> */}
     </div>
   )
 }
