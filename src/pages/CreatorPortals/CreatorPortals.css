@@ -1,5 +1,6 @@
 .creator-portals-page {
   /* Inherits fade-in */
+  width: 100%;
 }
 
 /* Hero */
@@ -68,7 +69,7 @@
 
 .perfect-card {
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   background-color: rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -129,7 +130,7 @@
 
 .tier-card {
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   padding: 3rem 2rem;
   border-radius: var(--radius-xl);
   position: relative;

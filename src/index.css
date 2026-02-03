@@ -68,21 +68,33 @@
 
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
+
+  /* Global Dynamic Values */
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='light'] {
   --bg-primary: #aec0d3;
   --bg-secondary: #ece3e3;
   --bg-card: #FFFFFF;
-  --bg-card-hover: #F0F4F8;
+  --bg-card-hover: #F8FAFC;
   
-  --text-primary: #102A43;
-  --text-secondary: #486581;
+  --text-primary: #102A43; /* Deep Navy */
+  --text-secondary: #334E68; /* Slate */
   --text-muted: #627D98;
+
+  /* Darker Accents for Visibility on Light BG */
+  --accent-blue: #0077CC; /* Rich Blue instead of Cyan */
+  --accent-green: #008844; /* Deep Green instead of Neon */
+  --accent-purple: #6200EA; /* Deep Purple */
   
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
-  --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+  --border-color: rgba(0, 0, 0, 0.1);
+
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+  --shadow-glow: 0 0 15px rgba(0, 119, 204, 0.3);
+  --shadow-glow-green: 0 0 15px rgba(0, 136, 68, 0.3);
 }
 
 /* Base Reset */
@@ -162,9 +174,20 @@ button {
   transition: var(--transition-base);
 }
 
+  /* Button Text Color Logic */
+  --btn-text-color: var(--bg-primary);
+}
+
+[data-theme='light'] {
+  /* ... previous overrides ... */
+  --btn-text-color: #FFFFFF;
+}
+
+/* ... existing styles ... */
+
 .btn-primary {
   background-color: var(--accent-blue);
-  color: var(--bg-primary);
+  color: var(--btn-text-color);
   box-shadow: var(--shadow-glow);
 }
 

@@ -40,7 +40,7 @@
 
 .tier-card {
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   padding: 3rem 2rem;
   border-radius: var(--radius-xl);
   position: relative;
