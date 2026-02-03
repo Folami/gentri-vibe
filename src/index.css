@@ -72,7 +72,7 @@
 
 [data-theme='light'] {
   --bg-primary: #aec0d3;
-  --bg-secondary: #e2d2d2;
+  --bg-secondary: #ece3e3;
   --bg-card: #FFFFFF;
   --bg-card-hover: #F0F4F8;
   
@@ -94,6 +94,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -102,6 +104,13 @@ body {
   color: var(--text-primary);
   line-height: var(--line-height-normal);
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+img, video, iframe, svg {
+  max-width: 100%;
+  height: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
