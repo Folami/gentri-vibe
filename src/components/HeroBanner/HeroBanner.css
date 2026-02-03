@@ -1,0 +1,32 @@
+.hero-section {
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  background: radial-gradient(ellipse at top, rgba(0, 255, 255, 0.1) 0%, var(--bg-primary) 60%);
+}
+
+.hero__title {
+  font-size: var(--font-5xl);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.hero__desc-container {
+  font-size: var(--font-xl);
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__sub-desc {
+  color: var(--accent-green);
+  font-size: 1rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}

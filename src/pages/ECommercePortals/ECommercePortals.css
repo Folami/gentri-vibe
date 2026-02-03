@@ -1,0 +1,117 @@
+.ecom-portals-page {
+  /* Inherits fade-in */
+  width: 100%;
+}
+
+/* Reusing portal-hero classes but can override specific background */
+.portal-hero {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  background: radial-gradient(circle at top, rgba(0, 255, 255, 0.1), transparent 70%);
+}
+
+.portal-hero__title {
+  font-size: var(--font-4xl);
+  margin-bottom: 1rem;
+}
+
+.portal-hero__subtitle {
+  font-size: 1.5rem;
+  color: var(--accent-purple);
+  margin-bottom: 1.5rem;
+}
+
+.portal-hero__desc {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Tiers Reused Logic */
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.tier-card {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-xl);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-purple);
+}
+
+.tier-card--popular {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--accent-blue);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.tier-tag {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-blue);
+  color: #000;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.tier-name {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.tier-price {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent-purple);
+  margin-bottom: 2rem;
+}
+
+.tier-period {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.tier-features {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.tier-features li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tier-features li span {
+  color: var(--accent-green);
+}
+
+.tier-btn {
+  width: 100%;
+}
+
+.portal-cta {
+  text-align: center;
+  padding-bottom: 8rem;
+}
+
+.portal-cta h2 {
+  margin-bottom: 2rem;
+}

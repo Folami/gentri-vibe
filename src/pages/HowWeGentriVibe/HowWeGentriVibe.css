@@ -1,0 +1,92 @@
+/* Page specific styles */
+.how-we-work-page {
+  width: 100%;
+}
+
+.hww__hero {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+.text-grade-1 {
+  color: var(--accent-blue);
+}
+
+.text-grade-2 {
+  color: var(--accent-green);
+}
+
+.text-grade-3 {
+  color: var(--accent-purple);
+}
+
+.hww__hero-title {
+  font-size: var(--font-4xl);
+}
+
+.hww__hero-desc {
+  font-size: var(--font-xl);
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Steps Grid */
+.section.hww__steps {
+  padding-bottom: 15rem;
+  margin-bottom: 5rem;
+  border-bottom: 1px solid transparent; /* Force separation */
+}
+
+.hww__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.step-card {
+  background-color: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.step-card__number {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.03);
+  font-weight: bold;
+  font-family: var(--font-heading);
+}
+
+.step-card__icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.step-card__title {
+  color: var(--accent-blue);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.step-card__desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* CTA */
+.hww__cta {
+  background-color: var(--bg-secondary);
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.hww__cta-title {
+  margin-bottom: 2rem;
+}

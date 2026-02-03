@@ -1,0 +1,89 @@
+.service-hero {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, var(--bg-primary) 70%);
+}
+
+.service-hero__icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.service-hero__title {
+  font-size: var(--font-4xl);
+  margin-bottom: 1rem;
+}
+
+.service-hero__desc {
+  font-size: var(--font-xl);
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.service-hero__price-box {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--accent-green);
+}
+
+.service-hero__price-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  display: block;
+}
+
+.service-hero__price-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-green);
+}
+
+/* Included Section */
+.section.service__included {
+  padding-bottom: 15rem;
+  margin-bottom: 5rem;
+}
+
+.service__included-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.service__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service__feature-card {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--accent-blue);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.service__feature-check {
+  color: var(--accent-green);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.service__feature-text {
+  font-size: 1.1rem;
+}
+
+.service__cta-container {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.service__cta-btn {
+  font-size: 1.2rem;
+  padding: 1.2rem 3rem;
+}

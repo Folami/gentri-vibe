@@ -1,0 +1,69 @@
+.why-us-section {
+  padding: 6rem 1rem;
+  background-color: var(--bg-secondary); /* Assuming section--alt maps to secondary bg */
+}
+
+.why-us-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+.why-us-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--accent-green);
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.why-us-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.why-us-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.why-us-card {
+  background-color: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-us-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent-blue);
+}
+
+.why-us-icon-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.why-us-icon {
+  font-size: 2.5rem;
+}
+
+.why-us-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.why-us-card-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}

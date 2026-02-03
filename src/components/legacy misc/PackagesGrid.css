@@ -1,0 +1,121 @@
+/* Packages Grid Styles */
+.packages {
+  padding: 6rem 1rem;
+  background-color: var(--bg-primary);
+}
+
+.packages__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.package-card {
+  background-color: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Color Variants */
+.package-card--blue { border-top: 4px solid var(--accent-blue); }
+.package-card--pink { border-top: 4px solid #FF00FF; }
+.package-card--yellow { border-top: 4px solid #FFD700; }
+.package-card--orange { border-top: 4px solid #FF8C00; }
+
+.package-card__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--accent-blue);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.package-card__name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.package-card__price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.package-card__description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.package-card__features {
+  margin-bottom: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.package-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.package-card__check {
+  color: var(--accent-green);
+  font-weight: bold;
+}
+
+.package-card__cta {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.package-card:hover .package-card__cta {
+  background-color: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.package-card--pink:hover .package-card__cta {
+  background-color: #FF00FF;
+  color: #fff;
+  border-color: #FF00FF;
+}
+
+.packages__footer {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.packages__contact-link {
+  color: var(--accent-green);
+  font-weight: bold;
+  margin-left: 0.5rem;
+}

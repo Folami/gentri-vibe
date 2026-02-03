@@ -1,0 +1,106 @@
+/* Existing Services styles */
+.services-hero {
+  padding-top: 8rem;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.services-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+.services-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  padding-bottom: 6rem;
+}
+
+.hub-card {
+  background-color: var(--bg-secondary);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hub-card:hover {
+  transform: translateY(-8px);
+}
+
+.hub-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.hub-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.hub-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.hub-link-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Color Variants */
+.card-blue:hover { border-color: var(--accent-blue); box-shadow: 0 0 30px rgba(0, 255, 255, 0.1); color: var(--text-primary); }
+.card-blue .hub-link-text { color: var(--accent-blue); }
+
+.card-green:hover { border-color: var(--accent-green); box-shadow: 0 0 30px rgba(0, 255, 127, 0.1); color: var(--text-primary); }
+.card-green .hub-link-text { color: var(--accent-green); }
+
+.card-purple:hover { border-color: var(--accent-purple); box-shadow: 0 0 30px rgba(127, 0, 255, 0.15); color: var(--text-primary); }
+.card-purple .hub-link-text { color: var(--accent-purple); }
+
+
+/* What We Do Section */
+.wwd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.wwd-card {
+  background-color: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.wwd-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.wwd-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.wwd-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.wwd-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

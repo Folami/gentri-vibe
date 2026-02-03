@@ -1,0 +1,53 @@
+.section.experience-section {
+  padding: 6rem 1rem 15rem 1rem;
+  margin-bottom: 5rem;
+}
+
+.experience__title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.experience__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.testimonial__quote {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.testimonial__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testimonial__author {
+  display: block;
+  color: var(--accent-blue);
+  font-weight: bold;
+}
+
+.testimonial__role {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.testimonial__stat {
+  font-size: 0.8rem;
+  background-color: rgba(0, 255, 127, 0.1);
+  color: var(--accent-green);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-full);
+}

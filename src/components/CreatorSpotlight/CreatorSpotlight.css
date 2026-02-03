@@ -1,0 +1,59 @@
+.spotlight-section {
+  padding: 6rem 1rem;
+  background-color: rgba(176, 38, 255, 0.05); /* slight purple tint */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.spotlight-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.spotlight-heading {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.spotlight-carousel {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.spotlight-card {
+  background: var(--bg-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.spotlight-avatar {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.spotlight-quote {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: #ddd;
+}
+
+.spotlight-author {
+  font-weight: bold;
+  color: var(--neon-green);
+  margin-bottom: 0.5rem;
+}
+
+.spotlight-stat {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

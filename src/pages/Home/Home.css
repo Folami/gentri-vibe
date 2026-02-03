@@ -1,0 +1,77 @@
+.home-page {
+  /* Inherits fade-in from global */
+}
+
+/* Process Teaser Section */
+.home__process {
+  padding: 6rem 1rem;
+}
+
+.home__heading-group {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.home__title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.home__subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* Teaser Component Styles */
+.teaser-card {
+  padding: 3rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.teaser-card__title {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.teaser-card__desc {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Services Teaser Section */
+.home__services {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 6rem 1rem;
+}
+
+.home__services-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.home__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* About Teaser Section */
+.home__about {
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.home__about-title {
+  margin-bottom: 1rem;
+}
+
+.home__about-desc {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: var(--text-secondary);
+}
