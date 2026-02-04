@@ -30,7 +30,6 @@
 .navbar__hamburger {
   display: none;
   background: none;
-  color: var(--bg-primary);
   border: none;
   padding: 0.5rem;
   z-index: 1001;
@@ -40,7 +39,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: var(--text-primary);
+  background-color: var(--bg-hamburger);
   margin: 5px 0;
   transition: 0.3s;
 }

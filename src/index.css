@@ -10,6 +10,9 @@
   --bg-card: #003366; 
   --bg-card-hover: #004080;
 
+  /* Colors - Hamburger */
+  --bg-hamburger: #FFFFFF;
+
   /* Colors - Accents */
   --accent-blue: #00FFFF; /* Cyan/Aqua */
   --accent-green: #00FF7F; /* Spring Green */
