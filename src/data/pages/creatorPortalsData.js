@@ -4,8 +4,8 @@ export const creatorPortalsData = {
     desc: "Own your audience with custom branded sites, paywalled content, exclusive fan hubs, and digital asset stores that turn fans into superfans—built for Afrobeats artists, influencers, and bold creators.",
     highlightWord: "superfans",
     icons: [
-      { icon: '🎵', text: 'Music & Art' },
-      { icon: '👕', text: 'Merch & Drops' },
+      // { icon: '🎵', text: 'Music & Art' },
+      // { icon: '👕', text: 'Merch & Drops' },
       { icon: '🔒', text: 'Exclusive Content' }
     ]
   },
