@@ -30,6 +30,7 @@
 .navbar__hamburger {
   display: none;
   background: none;
+  color: var(--bg-primary);
   border: none;
   padding: 0.5rem;
   z-index: 1001;
