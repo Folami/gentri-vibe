@@ -14,9 +14,9 @@
 .cp__hero-icons {
   display: flex;
   justify-content: center;
-  gap: 4rem;
-  flex-wrap: wrap;
+  gap: 3rem;
   margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 .cp__icon-wrapper {

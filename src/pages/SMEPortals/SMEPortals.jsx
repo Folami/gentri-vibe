@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { portalData } from '../../data/pages/portalData'
+import SubscriptionModal from '../../components/SubscriptionModal/SubscriptionModal'
 import './SMEPortals.css'
 
 const SMEPortals = () => {
   const { hero, tiers, cta } = portalData.sme
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedTier, setSelectedTier] = useState(null)
+
+  const openModal = (tier) => {
+    setSelectedTier(tier)
+    setModalOpen(true)
+  }
 
   return (
     <div className="page-container fade-in sme-portals-page">
+      <SubscriptionModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        selectedTier={selectedTier} 
+      />
+
       {/* Hero */}
       <section className="portal-hero">
         <div className="container">
@@ -34,11 +48,12 @@ const SMEPortals = () => {
                     <li key={idx}><span>✓</span> {f}</li>
                   ))}
                 </ul>
-                <Link to="/contact">
-                  <button className={`btn ${tier.isPopular ? 'btn-primary' : 'btn-outline'} tier-btn`}>
-                    Select {tier.name}
-                  </button>
-                </Link>
+                <button 
+                  className={`btn ${tier.isPopular ? 'btn-primary' : 'btn-outline'} tier-btn`}
+                  onClick={() => openModal(tier)}
+                >
+                  Select {tier.name}
+                </button>
               </div>
             ))}
           </div>
@@ -48,9 +63,9 @@ const SMEPortals = () => {
       {/* CTA */}
       <section className="portal-cta section container">
         <h2>{cta.title}</h2>
-        <Link to={cta.link} className="btn btn-primary">
+        {/* <Link to={cta.link} className="btn btn-primary">
           {cta.buttonText}
-        </Link>
+        </Link> */}
       </section>
     </div>
   )

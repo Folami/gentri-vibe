@@ -10,13 +10,13 @@ export const portalData = {
       {
         name: 'SME Basic',
         price: '₦50,000',
-        period: 'one-time',
+        period: 'monthly',
         features: ['3-Page Website', 'Contact Form', 'Basic SEO', 'Mobile Responsive', '1 Month Support']
       },
       {
         name: 'SME Pro',
         price: '₦85,000',
-        period: 'one-time',
+        period: 'monthly',
         isPopular: true,
         features: ['Up to 7 Pages', 'Custom Branding', 'Basic AI Chatbot', 'Blog/News Section', 'Analytics Dashboard', 'Priority Support']
       }
@@ -38,13 +38,13 @@ export const portalData = {
       {
         name: 'Starter Store',
         price: '₦120,000',
-        period: 'one-time',
+        period: 'monthly',
         features: ['Shopify/WooCommerce', '20 Product Uploads', 'Payment Gateway', 'Order Dashboard', 'Basic Inventory']
       },
       {
         name: 'Retail Vet',
         price: '₦200,000+',
-        period: 'one-time',
+        period: 'monthly',
         isPopular: true,
         features: ['Unlimited Products', 'AI Recommendations', 'Blockchain Loyalty', 'CRM Integration', 'Email Marketing Automation']
       }

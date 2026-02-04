@@ -22,6 +22,7 @@ import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Settings from './pages/Settings/Settings'
+import TransactionSuccess from './pages/TransactionSuccess/TransactionSuccess'
 
 // Data
 import { servicesData } from './data/pages/servicesData'
@@ -34,7 +35,7 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   return (
-    <Router basename="/gentri-vibe" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <Router basename="/gentri-vibe/" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <AuthProvider>
         <div className="app-container">
           <Routes>
@@ -43,13 +44,13 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/how-we-gentrivibe" element={<HowWeGentriVibe />} />
               <Route path="/about-us" element={<AboutUs />} />
-              
+           
               {/* Service Routes */}
               <Route path="/services" element={<Services />} />
               <Route path="/services/sme-portals" element={<SMEPortals />} />
               <Route path="/services/e-commerce-portals" element={<ECommercePortals />} />
               <Route path="/services/content-creator-portals" element={<CreatorPortals />} />
-              
+
               {/* Redirects for legacy links if any */}
               <Route path="/services/sme-basic" element={<Navigate to="/services/sme-portals" replace />} />
               <Route path="/services/sme-pro" element={<Navigate to="/services/sme-portals" replace />} />
@@ -60,6 +61,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
               <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+              <Route path="/transaction-success" element={<TransactionSuccess />} />
             </Route>
           </Routes>
           

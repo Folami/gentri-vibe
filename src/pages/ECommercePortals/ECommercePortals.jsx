@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { portalData } from '../../data/pages/portalData'
+import SubscriptionModal from '../../components/SubscriptionModal/SubscriptionModal'
 import './ECommercePortals.css'
 
 const ECommercePortals = () => {
   const { hero, tiers, cta } = portalData.ecommerce
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedTier, setSelectedTier] = useState(null)
+
+  const openModal = (tier) => {
+    setSelectedTier(tier)
+    setModalOpen(true)
+  }
 
   return (
     <div className="page-container fade-in ecom-portals-page">
+      <SubscriptionModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        selectedTier={selectedTier} 
+      />
+
       {/* Hero */}
       <section className="portal-hero">
         <div className="container">
@@ -34,11 +48,12 @@ const ECommercePortals = () => {
                     <li key={idx}><span>✓</span> {f}</li>
                   ))}
                 </ul>
-                <Link to="/contact">
-                  <button className={`btn ${tier.isPopular ? 'btn-primary' : 'btn-outline'} tier-btn`}>
-                    Select {tier.name}
-                  </button>
-                </Link>
+                <button 
+                  className={`btn ${tier.isPopular ? 'btn-primary' : 'btn-outline'} tier-btn`}
+                  onClick={() => openModal(tier)}
+                >
+                  Select {tier.name}
+                </button>
               </div>
             ))}
           </div>

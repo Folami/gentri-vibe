@@ -1,16 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { creatorPortalsData } from '../../data/pages/creatorPortalsData'
+import SubscriptionModal from '../../components/SubscriptionModal/SubscriptionModal'
 import './CreatorPortals.css'
 
 const CreatorPortals = () => {
   const { hero, perfectFor, features, tiers, cta } = creatorPortalsData
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedTier, setSelectedTier] = useState(null)
+
+  const openModal = (tier) => {
+    setSelectedTier(tier)
+    setModalOpen(true)
+  }
 
   return (
     <div className="page-container fade-in creator-portals-page">
+      <SubscriptionModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        selectedTier={selectedTier} 
+      />
+
       {/* Hero Section */}
       <section className="cp__hero">
         <div className="container">
-          {/* Three Icons Row */}
+          
+          {/* Title & Description FIRST (Reordered for layout consistency) */}
+          <h1 className="text-gradient cp__hero-title" dangerouslySetInnerHTML={{ __html: hero.title.replace('\n', '<br/>') }} />
+          
+          <p className="cp__hero-desc">
+            {hero.desc.split(hero.highlightWord).map((part, i, arr) => (
+              <React.Fragment key={i}>
+                {part}
+                {i < arr.length - 1 && <span style={{ color: 'var(--accent-blue)' }}>{hero.highlightWord}</span>}
+              </React.Fragment>
+            ))}
+          </p>
+
+          {/* Three Icons Row (Now BELOW Title) */}
           <div className="cp__hero-icons">
             {hero.icons.map((item, idx) => (
               <div key={idx} className="cp__icon-wrapper">
@@ -22,16 +49,6 @@ const CreatorPortals = () => {
             ))}
           </div>
 
-          <h1 className="text-gradient cp__hero-title" dangerouslySetInnerHTML={{ __html: hero.title.replace('\n', '<br/>') }} />
-          
-          <p className="cp__hero-desc">
-            {hero.desc.split(hero.highlightWord).map((part, i, arr) => (
-              <React.Fragment key={i}>
-                {part}
-                {i < arr.length - 1 && <span style={{ color: 'var(--accent-blue)' }}>{hero.highlightWord}</span>}
-              </React.Fragment>
-            ))}
-          </p>
         </div>
       </section>
 
@@ -74,7 +91,7 @@ const CreatorPortals = () => {
                 <button 
                   className={`btn ${tier.isPopular ? 'btn-primary' : 'btn-outline'}`}
                   style={{ width: '100%' }}
-                  onClick={() => document.querySelector('.navbar__link[href="#"]').click()}
+                  onClick={() => openModal(tier)}
                 >
                   Choose {tier.name}
                 </button>
@@ -104,7 +121,7 @@ const CreatorPortals = () => {
         <p style={{ maxWidth: '600px', margin: '0 auto 2rem auto', color: 'var(--text-secondary)' }}>
           {cta.desc}
         </p>
-        <button className="btn btn-primary" onClick={() => document.querySelector('.navbar__link[href="#"]').click()}>
+        <button className="btn btn-primary" onClick={() => document.querySelector('.cp__tiers').scrollIntoView({ behavior: 'smooth' })}>
           {cta.buttonText}
         </button>
       </section>
