@@ -7,6 +7,7 @@ const CreatorPortals = () => {
   const { hero, perfectFor, features, tiers, cta } = creatorPortalsData
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedTier, setSelectedTier] = useState(null)
+  const [selectedPeriod, setSelectedPeriod] = useState('quarterly')
 
   const openModal = (tier) => {
     setSelectedTier(tier)
@@ -18,7 +19,8 @@ const CreatorPortals = () => {
       <SubscriptionModal 
         isOpen={modalOpen} 
         onClose={() => setModalOpen(false)} 
-        selectedTier={selectedTier} 
+        selectedTier={selectedTier}
+        initialPeriod={selectedPeriod}
       />
 
       {/* Hero Section */}
@@ -70,7 +72,23 @@ const CreatorPortals = () => {
       {/* Tiers */}
       <section className="cp__tiers">
         <div className="container">
-          <h2 style={{ textAlign: 'center', marginBottom: '4rem' }}>Choose Your Tier</h2>
+          <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>Choose Your Tier</h2>
+          
+          <div className="period-selector" style={{ maxWidth: '400px', margin: '0 auto 3rem auto' }}>
+            {['quarterly', 'biannually', 'yearly'].map((p) => (
+              <label key={p} className={`period-option ${selectedPeriod === p ? 'active' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="period" 
+                  value={p} 
+                  checked={selectedPeriod === p}
+                  onChange={(e) => setSelectedPeriod(e.target.value)}
+                />
+                {p.charAt(0).toUpperCase() + p.slice(1)}
+              </label>
+            ))}
+          </div>
+
           <div className="tiers-grid">
             {tiers.map((tier, i) => (
               <div key={i} className={`tier-card ${tier.isPopular ? 'tier-card--popular' : ''}`}>
@@ -78,9 +96,12 @@ const CreatorPortals = () => {
                   <span className="tier-tag">Most Popular</span>
                 )}
                 <h3 style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>{tier.name}</h3>
-                <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--accent-blue)', marginBottom: '2rem' }}>
-                  {tier.price} <span style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>/{tier.period}</span>
+                <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--accent-blue)', marginBottom: '0.5rem' }}>
+                  {tier.pricing[selectedPeriod].monthlyEquivalent} <span style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>/month</span>
                 </div>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '2rem' }}>
+                  Billed as {tier.pricing[selectedPeriod].price} {tier.pricing[selectedPeriod].period}
+                </p>
                 <ul style={{ marginBottom: '2rem', textAlign: 'left' }}>
                   {tier.features.map((f, idx) => (
                     <li key={idx} style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -121,9 +142,9 @@ const CreatorPortals = () => {
         <p style={{ maxWidth: '600px', margin: '0 auto 2rem auto', color: 'var(--text-secondary)' }}>
           {cta.desc}
         </p>
-        <button className="btn btn-primary" onClick={() => document.querySelector('.cp__tiers').scrollIntoView({ behavior: 'smooth' })}>
+        {/* <button className="btn btn-primary" onClick={() => document.querySelector('.cp__tiers').scrollIntoView({ behavior: 'smooth' })}>
           {cta.buttonText}
-        </button>
+        </button> */}
       </section>
     </div>
   )

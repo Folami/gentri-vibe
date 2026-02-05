@@ -8,6 +8,7 @@ const ECommercePortals = () => {
   const { hero, tiers, cta } = portalData.ecommerce
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedTier, setSelectedTier] = useState(null)
+  const [selectedPeriod, setSelectedPeriod] = useState('quarterly')
 
   const openModal = (tier) => {
     setSelectedTier(tier)
@@ -19,7 +20,8 @@ const ECommercePortals = () => {
       <SubscriptionModal 
         isOpen={modalOpen} 
         onClose={() => setModalOpen(false)} 
-        selectedTier={selectedTier} 
+        selectedTier={selectedTier}
+        initialPeriod={selectedPeriod}
       />
 
       {/* Hero */}
@@ -35,14 +37,33 @@ const ECommercePortals = () => {
       <section className="portal-tiers section">
         <div className="container">
           <h2 className="section-title text-center">Build Your Empire</h2>
+          
+          <div className="period-selector" style={{ maxWidth: '400px', margin: '0 auto 3rem auto' }}>
+            {['quarterly', 'biannually', 'yearly'].map((p) => (
+              <label key={p} className={`period-option ${selectedPeriod === p ? 'active' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="period" 
+                  value={p} 
+                  checked={selectedPeriod === p}
+                  onChange={(e) => setSelectedPeriod(e.target.value)}
+                />
+                {p.charAt(0).toUpperCase() + p.slice(1)}
+              </label>
+            ))}
+          </div>
+
           <div className="tiers-grid">
             {tiers.map((tier, i) => (
               <div key={i} className={`tier-card ${tier.isPopular ? 'tier-card--popular' : ''}`}>
                 {tier.isPopular && <span className="tier-tag">Top Choice</span>}
                 <h3 className="tier-name">{tier.name}</h3>
                 <div className="tier-price">
-                  {tier.price} <span className="tier-period">/{tier.period}</span>
+                  {tier.pricing[selectedPeriod].monthlyEquivalent} <span className="tier-period">/month</span>
                 </div>
+                <p className="billing-cycle-note">
+                  Billed as {tier.pricing[selectedPeriod].price} {tier.pricing[selectedPeriod].period}
+                </p>
                 <ul className="tier-features">
                   {tier.features.map((f, idx) => (
                     <li key={idx}><span>✓</span> {f}</li>
@@ -63,9 +84,9 @@ const ECommercePortals = () => {
       {/* CTA */}
       <section className="portal-cta section container">
         <h2>{cta.title}</h2>
-        <Link to={cta.link} className="btn btn-primary">
+        {/* <Link to={cta.link} className="btn btn-primary">
           {cta.buttonText}
-        </Link>
+        </Link> */}
       </section>
     </div>
   )

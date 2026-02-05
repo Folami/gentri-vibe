@@ -61,6 +61,11 @@
   color: var(--text-muted);
 }
 
+.period-option.active {
+  background: var(--accent-blue);
+  font-weight: bold;
+}
+
 .subscription-form .form-group {
   margin-bottom: 1.5rem;
   text-align: left;

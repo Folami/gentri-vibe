@@ -9,14 +9,22 @@ export const portalData = {
     tiers: [
       {
         name: 'SME Basic',
-        price: '₦50,000',
-        period: 'monthly',
+        monthlyPrice: '₦45,000',
+        pricing: {
+          quarterly: { price: '₦45,000', period: 'quarterly', monthlyEquivalent: '₦15,000' },
+          biannually: { price: '₦85,000', period: 'biannually', monthlyEquivalent: '₦14,200' },
+          yearly: { price: '₦150,000', period: 'yearly', monthlyEquivalent: '₦12,500' }
+        },
         features: ['3-Page Website', 'Contact Form', 'Basic SEO', 'Mobile Responsive', '1 Month Support']
       },
       {
         name: 'SME Pro',
-        price: '₦85,000',
-        period: 'monthly',
+        monthlyPrice: '₦80,000',
+        pricing: {
+          quarterly: { price: '₦105,000', period: 'quarterly', monthlyEquivalent: '₦35,000' },
+          biannually: { price: '₦200,000', period: 'biannually', monthlyEquivalent: '₦33,300' },
+          yearly: { price: '₦350,000', period: 'yearly', monthlyEquivalent: '₦29,200' }
+        },
         isPopular: true,
         features: ['Up to 7 Pages', 'Custom Branding', 'Basic AI Chatbot', 'Blog/News Section', 'Analytics Dashboard', 'Priority Support']
       }
@@ -37,14 +45,22 @@ export const portalData = {
     tiers: [
       {
         name: 'Starter Store',
-        price: '₦120,000',
-        period: 'monthly',
+        monthlyPrice: '₦106,000',
+        pricing: {
+          quarterly: { price: '₦135,000', period: 'quarterly', monthlyEquivalent: '₦45,000' },
+          biannually: { price: '₦250,000', period: 'biannually', monthlyEquivalent: '₦41,700' },
+          yearly: { price: '₦450,000', period: 'yearly', monthlyEquivalent: '₦37,500' }
+        },
         features: ['Shopify/WooCommerce', '20 Product Uploads', 'Payment Gateway', 'Order Dashboard', 'Basic Inventory']
       },
       {
         name: 'Retail Vet',
-        price: '₦200,000+',
-        period: 'monthly',
+        monthlyPrice: '₦183,000',
+        pricing: {
+          quarterly: { price: '₦360,000', period: 'quarterly', monthlyEquivalent: '₦120,000' },
+          biannually: { price: '₦700,000', period: 'biannually', monthlyEquivalent: '₦116,700' },
+          yearly: { price: '₦1,200,000', period: 'yearly', monthlyEquivalent: '₦100,000' }
+        },
         isPopular: true,
         features: ['Unlimited Products', 'AI Recommendations', 'Blockchain Loyalty', 'CRM Integration', 'Email Marketing Automation']
       }

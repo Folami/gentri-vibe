@@ -72,21 +72,33 @@ export const creatorPortalsData = {
   tiers: [
     {
       name: 'Vibe Starter',
-      price: '₦15,000',
-      period: 'monthly',
+      monthlyPrice: '₦15,000',
+      pricing: {
+        quarterly: { price: '₦45,000', period: 'quarterly', monthlyEquivalent: '₦15,000' },
+        biannually: { price: '₦85,000', period: 'biannually', monthlyEquivalent: '₦14,200' },
+        yearly: { price: '₦150,000', period: 'yearly', monthlyEquivalent: '₦12,500' }
+      },
       features: ['Custom .com Domain Name', 'Limited Photo Uploads', 'Basic Analytics Dashboard', 'Telegram Link Integration', 'Standard Theme']
     },
     {
       name: 'Chart Topper',
-      price: '₦35,000',
-      period: 'monthly',
+      monthlyPrice: '₦35,000',
+      pricing: {
+        quarterly: { price: '₦105,000', period: 'quarterly', monthlyEquivalent: '₦35,000' },
+        biannually: { price: '₦200,000', period: 'biannually', monthlyEquivalent: '₦33,300' },
+        yearly: { price: '₦350,000', period: 'yearly', monthlyEquivalent: '₦29,200' }
+      },
       isPopular: true,
       features: ['Everything in Starter', 'Paywalled Content', 'Video Hosting', 'Event Ticketing', 'Priority Support']
     },
     {
       name: 'Icon Status',
-      price: '₦95,000',
-      period: 'monthly',
+      monthlyPrice: '₦86,000',
+      pricing: {
+        quarterly: { price: '₦300,000', period: 'quarterly', monthlyEquivalent: '₦100,000' },
+        biannually: { price: '₦550,000', period: 'biannually', monthlyEquivalent: '₦91,700' },
+        yearly: { price: '₦1,000,000', period: 'yearly', monthlyEquivalent: '₦83,300' }
+      },
       features: ['Everything in Chart Topper', 'Fully Custom App', 'NFT/Blockchain Integration', 'Advanced Analytics', 'Dedicated Manager', 'Global CDN']
     }
   ],
